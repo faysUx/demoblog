@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1>{% if editMode %}
+Modification de 
+{%  else %}
+creation de un 
+{% endif %}
+
+
+</h1>
+
+
+
+{{ form_start(formVoiture, {
+    attr: {
+        novalidate: 'novalidate'
+    }
+}) }}
+
+
+{{ form_row(formVoiture.marque) }}
+{{ form_row(formVoiture.modele) }}
+{{ form_row(formVoiture.prix) }}
+
+{{ form_row(formVoiture.description) }}
+
+
+
+<button type="submit" class="btn btn-primary mt-2">
+{% if editMode %}
+les modifications
+{% else %}
+ajouter Voiture
+
+{% endif %}
+</button>
+
+{{ form_end(formVoiture) }}
+
+{% endblock %}
